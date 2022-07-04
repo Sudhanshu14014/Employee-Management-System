@@ -12,7 +12,7 @@ $nid = $_POST['nid'];
 $dept = $_POST['department'];
 $degree = $_POST['degree'];
 $salary = $_POST['salary'];
-$bd = $_POST['brithday'];
+$bd = $_POST['edate'];
 $file = $_FILES['file'];
 $filename = $file['name'];
 $filetemp = $file['tmp_name'];
@@ -24,10 +24,10 @@ $fileextstored = array('png', 'jpg', 'jpeg');
 
 if(in_array($filecheck, $fileextstored)){
 
-    $destination = 'images/'.$fillename;
+    $destination = './images/'.$fillename;
     move_uploaded_file($filetemp, $destination);
 
-    $sql = "INSERT INTO `employee`(`id`, `firstName`, `lastName`, `email`, `password`, `birthday`, `gender`, `contact`, `nid`,  `address`, `dept`, `degree`, `pic`) VALUES ('','$firstname','$lastName','$email','1234','$birthday','$gender','$contact','$nid','$address','$dept','$degree','$destinationfile')";
+    $sql = "INSERT INTO `employee`(`id`, `firstName`, `lastName`, `email`, `password`, `birthday`, `gender`, `contact`, `nid`,  `address`, `dept`, `degree`, `pic`) VALUES ('','$firstname','$lastName','$email','1234','$bd','$gender','$contact','$nid','$address','$dept','$degree','$destination')";
 
 $result = mysqli_query($conn, $sql);
 
@@ -55,7 +55,7 @@ else{
 
 else{
 
-      $sql = "INSERT INTO `employee`(`id`, `firstName`, `lastName`, `email`, `password`, `birthday`, `gender`, `contact`, `nid`,  `address`, `dept`, `degree`, `pic`) VALUES ('','$firstname','$lastName','$email','1234','$birthday','$gender','$contact','$nid','$address','$dept','$degree','images/no.jpg')";
+      $sql = "INSERT INTO `employee`(`id`, `firstName`, `lastName`, `email`, `password`, `birthday`, `gender`, `contact`, `nid`,  `address`, `dept`, `degree`, `pic`) VALUES ('','$fname','$name','$email','1234','$birthday','$gender','$contact','$nid','$address','$dept','$degree','images/no.jpg')";
 
 $result = mysqli_query($conn, $sql);
 
@@ -74,6 +74,6 @@ if(($result) == 1){
 
 }
 
-
+header("Location: ..//viewemplyee.php")
 
 ?>

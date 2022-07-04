@@ -1,3 +1,10 @@
+<?php
+
+require_once ('process/dbcon.php');
+$sql = "SELECT * from `project` order by subdate desc";
+
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +47,7 @@
     </nav>
     <div>
         <h2>Assign Project</h2>
-        <form action="" method="POST">
+        <form action="./process/assignp.php" method="POST">
             <input type="text" name="employeeID" placeholder="Employee ID">
             <input type="text" name="Project" placeholder="Project Name">
             <input type="date" name="projectDate" placeholder="MM/DD/YYYY">

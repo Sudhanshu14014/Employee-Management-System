@@ -43,7 +43,7 @@
 
     <div>
         <h2>Registration Info</h2>
-        <form action="" method="POST">
+        <form action="./process/addempprocess.php" method="POST">
             <input type="text" name="fname" placeholder="First Name">
             <input type="text" name="lname" placeholder="Last Name">
             <input type="email" name="eemail" placeholder="Email">
@@ -60,7 +60,6 @@
             <input type="text" name="department" placeholder="Department">
             <input type="text" name="degree" placeholder="Degree">
             <input type="text" name="salary" placeholder="Salary">
-            <input type="file" name="file" >
             <input type="submit" value="Submit">
         </form>
     </div>

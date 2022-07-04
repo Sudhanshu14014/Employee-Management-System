@@ -1,3 +1,12 @@
+<?php
+
+require_once ('process/dbcon.php');
+$sql = "SELECT * from `project` order by subdate desc";
+
+
+$result = mysqli_query($conn, $sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,6 +59,23 @@
             <th><td>Options</td></th>
             
         </tr>
+
+        <?php
+				while ($employee = mysqli_fetch_assoc($result)) {
+					echo "<tr>";
+					echo "<td>".$employee['pid']."</td>";
+					echo "<td>".$employee['eid']."</td>";
+					echo "<td>".$employee['pname']."</td>";
+					echo "<td>".$employee['duedate']."</td>";
+					echo "<td>".$employee['subdate']."</td>";
+					echo "<td>".$employee['mark']."</td>";
+					echo "<td>".$employee['status']."</td>";
+					echo "<td><a href=\"mark.php?id=$employee[eid]&pid=$employee[pid]\">Mark</a>"; 
+
+				}
+
+
+			?>
     </table>
 </body>
 </html>

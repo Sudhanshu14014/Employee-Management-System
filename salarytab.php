@@ -1,3 +1,12 @@
+<?php
+
+require_once ('process/dbcon.php');
+$sql = "SELECT employee.id,employee.firstName,employee.lastName,salary.base,salary.bonus,salary.total from employee,`salary` where employee.id=salary.id";
+
+$result = mysqli_query($conn, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +56,20 @@
             <th><td>Total Salary</td></th>
             
         </tr>
+
+        <?php
+				while ($employee = mysqli_fetch_assoc($result)) {
+					echo "<tr>";
+					echo "<td>".$employee['id']."</td>";
+					echo "<td>".$employee['firstName']." ".$employee['lastName']."</td>";
+					
+					echo "<td>".$employee['base']."</td>";
+					echo "<td>".$employee['bonus']." %</td>";
+					echo "<td>".$employee['total']."</td>";
+				
+                }
+
+			?>
     </table>
 </body>
 </html>

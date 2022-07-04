@@ -1,3 +1,11 @@
+<?php
+
+require_once ('process/dbcon.php');
+$sql = "SELECT * from `employee` , `rank` WHERE employee.id = rank.eid";
+
+$result = mysqli_query($conn, $sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +49,6 @@
     <table>
         <tr>
             <th><td>Emp. ID</td></th>
-            <th><td>Picture</td></th>
             <th><td>Name</td></th>
             <th><td>Email</td></th>
             <th><td>Birthday</td></th>
@@ -55,6 +62,28 @@
             <th><td>Options</td></th>
             
         </tr>
+        <?php
+				while ($employee = mysqli_fetch_assoc($result)) {
+					echo "<tr>";
+					echo "<td>".$employee['id']."</td>";
+					echo "<td>".$employee['firstName']." ".$employee['lastName']."</td>";
+					
+					echo "<td>".$employee['email']."</td>";
+					echo "<td>".$employee['birthday']."</td>";
+					echo "<td>".$employee['gender']."</td>";
+					echo "<td>".$employee['contact']."</td>";
+					echo "<td>".$employee['nid']."</td>";
+					echo "<td>".$employee['address']."</td>";
+					echo "<td>".$employee['dept']."</td>";
+					echo "<td>".$employee['degree']."</td>";
+					echo "<td>".$employee['points']."</td>";
+
+					echo "<td><a href=\"edit.php?id=$employee[id]\">Edit</a> | <a href=\"delete.php?id=$employee[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+
+				}
+
+
+			?>
     </table>
 </body>
 </html>
