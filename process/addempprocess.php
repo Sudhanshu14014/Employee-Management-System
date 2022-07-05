@@ -55,7 +55,7 @@ else{
 
 else{
 
-      $sql = "INSERT INTO `employee`(`id`, `firstName`, `lastName`, `email`, `password`, `birthday`, `gender`, `contact`, `nid`,  `address`, `dept`, `degree`, `pic`) VALUES ('','$fname','$name','$email','1234','$birthday','$gender','$contact','$nid','$address','$dept','$degree','images/no.jpg')";
+      $sql = "INSERT INTO `employee`(`id`, `firstName`, `lastName`, `email`, `password`, `birthday`, `gender`, `contact`, `nid`,  `address`, `dept`, `degree`, `pic`) VALUES ('','$fname','$lname','$email','1234','$birthday','$gender','$contact','$nid','$address','$dept','$degree','images/no.jpg')";
 
 $result = mysqli_query($conn, $sql);
 
